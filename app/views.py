@@ -24,8 +24,8 @@ from datetime import datetime
 #CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
 #'/app/.chromedriver/bin/chromedriver'
 # GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
-GOOGLE_CHROME_PATH = '/usr/bin/google-chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+GOOGLE_CHROME_PATH = '/app/.apt/opt/google/chrome/chrome'
 #GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
 #CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
