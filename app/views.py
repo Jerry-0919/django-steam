@@ -30,7 +30,7 @@ GOOGLE_CHROME_PATH = '/app/.apt/opt/google/chrome/chrome'
 #CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
 def parseCompany(pageContent):
-    print("here")
+    print("Updated print")
     packGameInfo = {
         "companyName" : "",
         "webSite"     : "",
