@@ -152,7 +152,7 @@ def categoryPageParse(targetLink):
     # chrome_options.add_argument('--no-sandbox')
     # chrome_options.add_argument('--disable-dev-shm-usage')
     # chrome_options.add_argument('--disable-gpu')
-    print ("test")
+    print ("test1")
     print (os.environ)
 
     chrome_options = webdriver.ChromeOptions()
