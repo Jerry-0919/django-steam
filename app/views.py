@@ -24,12 +24,13 @@ from datetime import datetime
 #CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
 #'/app/.chromedriver/bin/chromedriver'
 # GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+CHROMEDRIVER_PATH = '/usr/bin/chromedriver'
+GOOGLE_CHROME_PATH = '/usr/bin/google-chrome'
+#GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+#CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 
 def parseCompany(pageContent):
-
+    print("here")
     packGameInfo = {
         "companyName" : "",
         "webSite"     : "",
@@ -44,7 +45,7 @@ def parseCompany(pageContent):
         if siteLinkTag[0]['href']:
             siteLink = siteLinkTag[0]['href']
     packGameInfo["webSite"] = siteLink
-
+ 
     # Get Social Link
     socialWrapper = pageContent.select("div.socialmedia_accounts")
     if len(socialWrapper):
@@ -160,9 +161,9 @@ def categoryPageParse(targetLink):
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
-    chrome_options.binary_location = GOOGLE_CHROME_PATH
+    #chrome_options.binary_location = GOOGLE_CHROME_PATH
     driverCategory = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
-    
+    print("==============")
    # driverCategory = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH ) # , chrome_options=chrome_options)
 
     try:
@@ -172,7 +173,7 @@ def categoryPageParse(targetLink):
             wait = WebDriverWait(driverCategory, delay)
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.block_content.page_content')))
         except TimeoutException:
-
+            print("---------------")
             # if this page is age detect page
             pageContent = BeautifulSoup(driverCategory.page_source , "html.parser")
             ageDetectTags = pageContent.select("div.agegate_birthday_selector")
@@ -225,7 +226,7 @@ def get_screenshot(request):
     """
     width = 1024
     height = 768
-
+    print("now")
     if request.method == 'POST' and 'url' in request.POST:
         url = request.POST.get('url', '')
         if url is not None and url != '':
@@ -262,12 +263,12 @@ def get_screenshot(request):
             #     'save': save
             # }
             # driver.quit()    
-
+            print("at last")
             result = {
                 'data': json.dumps(res , indent=4),
                 'full_url': url
             }
-
+            print("now here at last")
             return render(request, 'home.html', result)
     else:
         return render(request, 'home.html')
