@@ -1,0 +1,32 @@
+{% load app_extras %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}" />
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Python Screenshot Generator</title>
+</head>
+<body>
+<div>
+  <h1>Python Screenshot Generator</h1>
+  <form action="/" method="post">
+    {% csrf_token %}
+    <input type="url" name="url" size="50" value="{{ full_url }}" placeholder="Enter URL: https://store.steampowered.com/" required>
+    <button type="submit"> Get Game Information! :) </button>
+  </form>
+  <label><small> Input Game Link and Please wait for a few seconds. <br /> After refreshing this page, you can see the result follow Text Area. <br/> Thanks.</small></label>
+  <br />
+  {% if data %}
+  <textarea readonly>
+    {{ data }} 
+  </textarea>
+  {% endif %}
+
+</div>
+</body>
+</html>
