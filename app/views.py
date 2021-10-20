@@ -153,8 +153,6 @@ def categoryPageParse(targetLink):
     # chrome_options.add_argument('--no-sandbox')
     # chrome_options.add_argument('--disable-dev-shm-usage')
     # chrome_options.add_argument('--disable-gpu')
-    print ("test1")
-    print (os.environ)
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -163,7 +161,6 @@ def categoryPageParse(targetLink):
     chrome_options.add_argument("--no-sandbox")
     #chrome_options.binary_location = GOOGLE_CHROME_PATH
     driverCategory = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH, chrome_options=chrome_options)
-    print("==============")
    # driverCategory = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH ) # , chrome_options=chrome_options)
 
     try:
