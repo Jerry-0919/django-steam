@@ -170,7 +170,6 @@ def categoryPageParse(targetLink):
             wait = WebDriverWait(driverCategory, delay)
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'div.block_content.page_content')))
         except TimeoutException:
-            print("---------------")
             # if this page is age detect page
             pageContent = BeautifulSoup(driverCategory.page_source , "html.parser")
             ageDetectTags = pageContent.select("div.agegate_birthday_selector")
@@ -215,7 +214,10 @@ def categoryPageParse(targetLink):
 
     driverCategory.close()
     
-    return resAr
+    if len(resAr):
+        resAr[0]
+    else:
+        return {}
 
 def get_screenshot(request):
     """
