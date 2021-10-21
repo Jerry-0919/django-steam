@@ -209,15 +209,13 @@ def categoryPageParse(targetLink):
 
         resAr.append(comInfo)
 
+        driverCategory.close()
+        return comInfo
     except Exception as ex:
-        unknownExceptionOccur(ex)
-
-    driverCategory.close()
-    
-    if len(resAr):
-        resAr[0]
-    else:
+        driverCategory.close()
         return {}
+        unknownExceptionOccur(ex)    
+    return resAr
 
 def get_screenshot(request):
     """
