@@ -269,3 +269,15 @@ def get_screenshot(request):
             return render(request, 'home.html', result)
     else:
         return render(request, 'home.html')
+
+def get_v2_screenshot (request):
+    if request.method == 'POST' and 'url' in request.POST:
+        url = request.POST.get('url', '')
+        if url is not None and url != '':
+            res = categoryPageParse (url)
+            return HttpResponse(res)
+    else:
+        result = {
+            []
+        }
+        return HttpResponse(result)
