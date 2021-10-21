@@ -278,6 +278,6 @@ def get_v2_screenshot (request):
             return HttpResponse(res)
     else:
         result = {
-            []
+            
         }
         return HttpResponse(result)
